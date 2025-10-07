@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur de matériaux</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🧱 Calculateur de matériaux de construction</h1>
+
+  <section>
+    <h2>Fondations</h2>
+    <label>Longueur (m): <input type="number" id="longueurFondation"></label>
+    <label>Largeur (m): <input type="number" id="largeurFondation"></label>
+    <label>Hauteur (m): <input type="number" id="hauteurFondation"></label>
+    <label>Dosage béton:
+      <select id="dosageFondation">
+        <option value="standard">Standard (350 kg/m³)</option>
+        <option value="arme">Armé (400 kg/m³)</option>
+      </select>
+    </label>
+    <button onclick="calculer('Fondations')">Calculer</button>
+  </section>
+
+  <section>
+    <h2>Murs porteurs</h2>
+    <label>Longueur (m): <input type="number" id="longueurMur"></label>
+    <label>Hauteur (m): <input type="number" id="hauteurMur"></label>
+    <label>Épaisseur (m): <input type="number" id="epaisseurMur"></label>
+    <label>Dosage béton:
+      <select id="dosageMur">
+        <option value="standard">Standard (350 kg/m³)</option>
+        <option value="arme">Armé (400 kg/m³)</option>
+      </select>
+    </label>
+    <button onclick="calculer('Murs')">Calculer</button>
+  </section>
+
+  <section>
+    <h2>Dalles</h2>
+    <label>Surface (m²): <input type="number" id="surfaceDalle"></label>
+    <label>Épaisseur (m): <input type="number" id="epaisseurDalle"></label>
+    <label>Dosage béton:
+      <select id="dosageDalle">
+        <option value="standard">Standard (350 kg/m³)</option>
+        <option value="arme">Armé (400 kg/m³)</option>
+      </select>
+    </label>
+    <button onclick="calculer('Dalles')">Calculer</button>
+  </section>
+
+  <section>
+    <h2>🔢 Récapitulatif</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ouvrage</th>
+          <th>Ciment (sacs)</th>
+          <th>Sable (m³)</th>
+          <th>Gravier (m³)</th>
+          <th>Fer (kg)</th>
+        </tr>
+      </thead>
+      <tbody id="resultats"></tbody>
+    </table>
+    <button onclick="exporterCSV()">📤 Exporter en CSV</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
